@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Retardino — Supermercado 24h</title>
+  <meta name="description" content="Retardino. El súper de la esquina. Open 24h, closed to questions.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Permanent+Marker&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script type="importmap">{ "imports": { "three": "./vendor/three.module.min.js" } }</script>
+</head>
+<body>
+  <canvas id="scene" aria-label="Estantería giratoria de productos en 3D"></canvas>
+
+  <header class="top">
+    <div class="logo">
+      <h1>RETARDINO</h1>
+      <p>supermercado · bazar · <span class="open">open 24h</span></p>
+    </div>
+    <button id="basketBtn" class="basket" aria-haspopup="dialog" aria-controls="receipt">
+      <span>Cesta</span><b id="basketCount">0</b>
+    </button>
+  </header>
+
+  <button class="nav prev" id="prev" aria-label="Producto anterior">&larr;</button>
+  <button class="nav next" id="next" aria-label="Producto siguiente">&rarr;</button>
+
+  <section class="tag" id="tag" aria-live="polite">
+    <span class="hole" aria-hidden="true"></span>
+    <p class="aisle" id="pAisle"></p>
+    <h2 id="pName"></h2>
+    <p class="tagline" id="pTagline"></p>
+    <p class="desc" id="pDesc"></p>
+    <div class="buy">
+      <span class="price" id="pPrice"></span>
+      <button id="add">Add to basket</button>
+    </div>
+  </section>
+
+  <p class="hint" id="hint">drag · ← → · click a product</p>
+
+  <aside class="receipt" id="receipt" role="dialog" aria-label="Ticket" hidden>
+    <button class="close" id="closeReceipt" aria-label="Cerrar">&times;</button>
+    <h3>RETARDINO</h3>
+    <p class="small">*** ticket de compra ***</p>
+    <ul id="lines"></ul>
+    <p class="total"><span>TOTAL</span><b id="total">€0.00</b></p>
+    <button id="pay">Pagar</button>
+    <p class="small" id="payMsg"></p>
+    <p class="small">gracias por nada · vuelva pronto</p>
+  </aside>
+
+  <script type="module" src="src/main.js"></script>
+</body>
+</html>
